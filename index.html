@@ -59,17 +59,8 @@
     <a href="https://github.com/cutsocial">GitHub</a>
     <a href="https://www.linkedin.com/in/mostafa-salari-rad-49074a20">LinkedIn</a>
   </nav>
-  <span>Email: <span class="email" data-u="salarirad" data-d="gmail.com">salarirad [at] gmail.com</span></span>
 </footer>
 
 </div>
-<script>
-document.querySelectorAll('.email[data-u]').forEach(function (el) {
-  var a = el.dataset.u + '@' + el.dataset.d;
-  var link = document.createElement('a');
-  link.href = 'mailto:' + a; link.textContent = a; link.className = 'email';
-  el.replaceWith(link);
-});
-</script>
 </body>
 </html>
