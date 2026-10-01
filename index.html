@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mostafa Salari Rad</title>
+<meta name="description" content="Behavioral scientist studying decisions, cooperation, social cognition, and policy views across cultures and identities, and building tools to measure them in the real world.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="site-head">
+  <nav aria-label="Main">
+    <a href="research.html">Research</a>
+    <a href="tools.html">Tools</a>
+    <a href="advising.html">Advising</a>
+    <a href="https://drive.google.com/file/d/1-iTkNZnMxz4vcI0DA73Dmetbxs1I2DMS/view?usp=sharing">CV</a>
+  </nav>
+</header>
+
+<main>
+  <section class="intro">
+    <div>
+      <h1>Mostafa Salari Rad</h1>
+      <div class="bio">
+        <p class="lede">I'm a behavioral scientist interested in how people make decisions, cooperate, make sense of others, and support policies, across cultures and identities. I also build the tools to measure this in the real world.</p>
+        <p>I trained as a software engineer, worked as a market research consultant while getting my MBA, then earned a PhD in psychology. Since then, I've taught at Princeton and The New School, and I lead a Templeton-funded research program using Ramadan as a natural experiment in decision-making and cooperation.</p>
+        <p>I'm an Editorial Fellow at the Journal of Experimental Psychology: Applied. I review research for journals and grant-makers, and advise on research design and data analysis.</p>
+        <p>Outside work, I like films, fiction, photography, and hanging out with Zorba.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="doors" aria-label="Sections">
+    <a class="door" href="research.html">
+      <h2>Research</h2>
+      <p>Decisions, cooperation, and social cognition across cultures — papers and ongoing projects.</p>
+    </a>
+    <a class="door" href="tools.html">
+      <h2>Tools</h2>
+      <p>Cut, Lens, and Jamasp: open tools for designing, running, and collecting behavioral and wearable studies.</p>
+    </a>
+    <a class="door" href="advising.html">
+      <h2>Advising</h2>
+      <p>Research design, data analysis, and review: helping teams know whether their evidence holds up.</p>
+    </a>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <nav aria-label="Profiles">
+    <a href="https://scholar.google.com/citations?user=LlGgZYEAAAAJ&amp;hl=en">Google Scholar</a>
+    <a href="https://orcid.org/0000-0003-4591-8678">ORCID</a>
+    <a href="https://github.com/cutsocial">GitHub</a>
+    <a href="https://www.linkedin.com/in/mostafa-salari-rad-49074a20">LinkedIn</a>
+  </nav>
+  <span>Email: <span class="email" data-u="salarirad" data-d="gmail.com">salarirad [at] gmail.com</span></span>
+</footer>
+
+</div>
+<script>
+document.querySelectorAll('.email[data-u]').forEach(function (el) {
+  var a = el.dataset.u + '@' + el.dataset.d;
+  var link = document.createElement('a');
+  link.href = 'mailto:' + a; link.textContent = a; link.className = 'email';
+  el.replaceWith(link);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Advising · Mostafa Salari Rad</title>
+<meta name="description" content="Research design, data analysis, research review, and data literacy training from behavioral scientist Mostafa Salari Rad.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="site-head">
+  <a class="home" href="index.html">Mostafa Salari Rad</a>
+  <nav aria-label="Main">
+    <a href="research.html">Research</a>
+    <a href="tools.html">Tools</a>
+    <a href="advising.html" aria-current="page">Advising</a>
+    <a href="https://drive.google.com/file/d/1-iTkNZnMxz4vcI0DA73Dmetbxs1I2DMS/view?usp=sharing">CV</a>
+  </nav>
+</header>
+
+<main>
+  <section class="page-intro">
+    <h1>Advising</h1>
+    <p class="lede">I help teams design research and judge whether their evidence holds up, before they fund it, publish it, or act on it.</p>
+  </section>
+
+  <section class="offers" aria-label="What I do">
+    <div class="offer">
+      <h2>Research design</h2>
+      <p>Experiments, surveys, and measurement, including online and wearable studies.</p>
+    </div>
+    <div class="offer">
+      <h2>Data analysis</h2>
+      <p>Statistical modeling in R, SQL, and Python, from cleaning messy data to a clear answer.</p>
+    </div>
+    <div class="offer">
+      <h2>Research review</h2>
+      <p>Evaluating studies, proposals, and evidence claims, including internal studies, vendor reports, and A/B tests.</p>
+    </div>
+    <div class="offer">
+      <h2>Workshops and training</h2>
+      <p>Data literacy for non-researchers: reading data, spotting weak evidence, and asking the right questions. Also statistics, research methods, and decision-making for teams.</p>
+    </div>
+  </section>
+
+  <section class="record" aria-labelledby="record">
+    <h2 id="record">Track record</h2>
+    <ul>
+      <li>Editorial Fellow at the Journal of Experimental Psychology: Applied</li>
+      <li>Peer reviewer for Science, Nature Human Behaviour, Psychological Science, Nature Reviews Psychology, Journal of Experimental Psychology: General, Personality and Social Psychology Bulletin, and others (<a href="https://orcid.org/0000-0003-4591-8678">review record on ORCID</a>)</li>
+      <li>Grant and research reviews for funders</li>
+      <li>Market research consulting</li>
+      <li>Lecturer at Princeton and The New School, teaching statistics, research methods, and judgment and decision-making</li>
+    </ul>
+  </section>
+
+  <section class="contact" aria-labelledby="contact">
+    <h2 id="contact">Get in touch</h2>
+    <p>I work with companies, foundations, nonprofits, and research teams. I'm always open to new ideas and projects!</p>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <nav aria-label="Profiles">
+    <a href="https://scholar.google.com/citations?user=LlGgZYEAAAAJ&amp;hl=en">Google Scholar</a>
+    <a href="https://orcid.org/0000-0003-4591-8678">ORCID</a>
+    <a href="https://github.com/cutsocial">GitHub</a>
+    <a href="https://www.linkedin.com/in/mostafa-salari-rad-49074a20">LinkedIn</a>
+  </nav>
+  <span>Email: <span class="email" data-u="salarirad" data-d="gmail.com">salarirad [at] gmail.com</span></span>
+</footer>
+
+</div>
+<script>
+document.querySelectorAll('.email[data-u]').forEach(function (el) {
+  var a = el.dataset.u + '@' + el.dataset.d;
+  var link = document.createElement('a');
+  link.href = 'mailto:' + a; link.textContent = a; link.className = 'email';
+  el.replaceWith(link);
+});
+</script>
+</body>
+</html>

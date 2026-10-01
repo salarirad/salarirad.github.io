@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tools · Mostafa Salari Rad</title>
+<meta name="description" content="Open research tools by Mostafa Salari Rad: Cut, Lens, and Jamasp, for running behavioral studies in the browser and collecting wearable data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="site-head">
+  <a class="home" href="index.html">Mostafa Salari Rad</a>
+  <nav aria-label="Main">
+    <a href="research.html">Research</a>
+    <a href="tools.html" aria-current="page">Tools</a>
+    <a href="advising.html">Advising</a>
+    <a href="https://drive.google.com/file/d/1-iTkNZnMxz4vcI0DA73Dmetbxs1I2DMS/view?usp=sharing">CV</a>
+  </nav>
+</header>
+
+<main>
+  <section class="page-intro">
+    <h1>Tools</h1>
+    <p class="lede">I build open tools that take behavioral research out of the lab: design and run studies in the browser, and collect real-world data from wearables.</p>
+  </section>
+
+  <section class="tools" aria-label="Tools">
+    <article class="tool">
+      <div>
+        <h2>Jamasp</h2>
+        <p class="years">Current</p>
+      </div>
+      <div>
+        <p>Recruits people who already own wearables and collects their heart rate, sleep, and activity data, from consent through to an analysis-ready database.</p>
+        <p>In a 65-day pilot with 41 Fitbit owners recruited through Prolific, Jamasp kept data completeness high across all three streams.</p>
+        <p class="links"><a href="https://jamasp.app">jamasp.app</a> <a href="https://github.com/cutsocial/jamasp-public">Code and data from the pilot</a></p>
+      </div>
+    </article>
+
+    <article class="tool">
+      <div>
+        <h2>Lens</h2>
+        <p class="years">Co-founder, 2018–2020</p>
+      </div>
+      <div>
+        <p>Mix surveys with interactive tasks, from risk and inhibition to memory and economic games, in one study file that runs in any browser, in any language. Funded by The New School, APS, and the Templeton World Charity Foundation, and used across my Ramadan studies.</p>
+        <p class="links"><a href="https://lens.cut.social/#/bart/en">Try the balloon risk task</a> <a href="https://lens.cut.social/#/stroop/en">Stroop task</a> <a href="https://lens.cut.social/#/dictator/en">Dictator game</a> <a href="https://github.com/cutsocial/lens">Source on GitHub</a></p>
+      </div>
+    </article>
+
+    <article class="tool">
+      <div>
+        <h2>Cut</h2>
+        <p class="years">2014–2018, Lens's predecessor</p>
+      </div>
+      <div>
+        <p>A full experiment platform with real-time multiplayer games: participants were matched live for ultimatum and dictator games, with configurable bots stepping in when no partner was available. It also included a visual study designer, Mechanical Turk management, and multilingual support. It ran our early Ramadan studies and a 2016 election study.</p>
+      </div>
+    </article>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <nav aria-label="Profiles">
+    <a href="https://scholar.google.com/citations?user=LlGgZYEAAAAJ&amp;hl=en">Google Scholar</a>
+    <a href="https://orcid.org/0000-0003-4591-8678">ORCID</a>
+    <a href="https://github.com/cutsocial">GitHub</a>
+    <a href="https://www.linkedin.com/in/mostafa-salari-rad-49074a20">LinkedIn</a>
+  </nav>
+  <span>Email: <span class="email" data-u="salarirad" data-d="gmail.com">salarirad [at] gmail.com</span></span>
+</footer>
+
+</div>
+<script>
+document.querySelectorAll('.email[data-u]').forEach(function (el) {
+  var a = el.dataset.u + '@' + el.dataset.d;
+  var link = document.createElement('a');
+  link.href = 'mailto:' + a; link.textContent = a; link.className = 'email';
+  el.replaceWith(link);
+});
+</script>
+</body>
+</html>
