@@ -105,7 +105,6 @@ h1 {
 }
 .site-foot nav { display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; }
 .site-foot a { text-decoration: none; }
-.email { user-select: all; color: var(--ink); }
 
 @media (max-width: 720px) {
   .intro { padding-block: 2.5rem 2rem; grid-template-columns: minmax(0, 1fr); }
