@@ -160,11 +160,4 @@ h1 {
 .offer { padding-block: 1.5rem; border-bottom: 1px solid var(--rule); min-width: 0; }
 .offer h2 { font-family: var(--display); font-weight: 700; font-size: var(--step-1); margin: 0 0 0.4rem; }
 .offer p { margin: 0; }
-.record { max-width: 46rem; margin-bottom: 3.5rem; }
-.record h2, .contact h2 { font-family: var(--display); font-weight: 700; font-size: var(--step-2); letter-spacing: -0.015em; margin: 0 0 1rem; }
-.record ul { margin: 0; padding-left: 1.1rem; }
-.record li { margin-bottom: 0.6rem; }
-.record li::marker { color: var(--firouzeh); }
-.contact { max-width: var(--measure); margin-bottom: 4rem; }
-.contact p { margin: 0 0 0.6rem; }
 @media (max-width: 720px) { .offers { grid-template-columns: minmax(0, 1fr); } }
