@@ -58,8 +58,18 @@ a:focus-visible { outline: 2px solid var(--firouzeh); outline-offset: 3px; borde
 /* Intro */
 .intro {
   padding-block: 4.5rem 3rem;
+  display: grid; grid-template-columns: minmax(0, 1fr) 14rem;
+  gap: 2rem 3rem; align-items: end;
 }
 .intro > div { min-width: 0; }
+.zorba { margin: 0 0 1.05em; }
+.zorba img {
+  display: block; width: 100%; height: auto;
+  background: var(--wash); border-radius: 2px;
+}
+.zorba figcaption {
+  font-family: var(--display); font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem;
+}
 h1 {
   font-family: var(--display); font-weight: 700; font-size: var(--step-3);
   line-height: 1.02; letter-spacing: -0.025em; margin: 0 0 2rem; text-wrap: balance;
@@ -98,7 +108,8 @@ h1 {
 .email { user-select: all; color: var(--ink); }
 
 @media (max-width: 720px) {
-  .intro { padding-block: 2.5rem 2rem; }
+  .intro { padding-block: 2.5rem 2rem; grid-template-columns: minmax(0, 1fr); }
+  .zorba { max-width: 16rem; }
   .door { grid-template-columns: minmax(0, 1fr); }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
