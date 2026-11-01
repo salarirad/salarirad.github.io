@@ -160,4 +160,8 @@ h1 {
 .offer { padding-block: 1.5rem; border-bottom: 1px solid var(--rule); min-width: 0; }
 .offer h2 { font-family: var(--display); font-weight: 700; font-size: var(--step-1); margin: 0 0 0.4rem; }
 .offer p { margin: 0; }
-@media (max-width: 720px) { .offers { grid-template-columns: minmax(0, 1fr); } }
+.offer:nth-last-child(-n+2) { border-bottom: 0; }  /* no rule under the last row */
+@media (max-width: 720px) {
+  .offers { grid-template-columns: minmax(0, 1fr); }
+  .offer:nth-last-child(2) { border-bottom: 1px solid var(--rule); }
+}
