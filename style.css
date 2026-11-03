@@ -84,7 +84,7 @@ h1 {
 .doors { border-top: 2px solid var(--ink); margin-block: 1rem 4rem; }
 .door { border-bottom: 1px solid var(--rule); scroll-margin-top: 1rem; }
 .door:last-child { border-bottom: 0; }
-.door > summary, .door-link {
+.door > summary {
   display: grid; grid-template-columns: 12rem minmax(0, 1fr) 1.5rem; gap: 0.5rem 2rem;
   align-items: baseline; padding-block: 1.6rem;
   text-decoration: none; color: var(--ink); cursor: pointer; list-style: none;
@@ -98,10 +98,10 @@ h1 {
 .door > summary .lede { display: none; }
 .door[open] > summary .teaser { display: none; }
 .door[open] > summary .lede { display: block; margin: 0; font-size: var(--step-1); line-height: 1.5; max-width: var(--measure); color: var(--ink); }
-.door > summary:hover h2, .door-link:hover h2,
-.door > summary:focus-visible h2, .door-link:focus-visible h2 { color: var(--firouzeh); }
+.door > summary:hover h2,
+.door > summary:focus-visible h2 { color: var(--firouzeh); }
 .door:hover { border-bottom-color: var(--firouzeh); }
-.door > summary:focus-visible, .door-link:focus-visible { outline: 2px solid var(--firouzeh); outline-offset: 4px; }
+.door > summary:focus-visible { outline: 2px solid var(--firouzeh); outline-offset: 4px; }
 
 /* Plus that turns into a minus when the row is open. */
 .mark { position: relative; justify-self: end; align-self: center; width: 1rem; height: 1rem; color: var(--muted); }
@@ -111,9 +111,7 @@ h1 {
 }
 .mark::after { transform: rotate(90deg); }
 .door[open] .mark::after { transform: rotate(0deg); }
-.mark-file { width: auto; height: auto; font-family: var(--display); font-size: 1.2rem; line-height: 1; }
-.mark-file::before, .mark-file::after { display: none; }
-.door > summary:hover .mark, .door-link:hover .mark { color: var(--firouzeh); }
+.door > summary:hover .mark { color: var(--firouzeh); }
 
 .panel { padding-block: 0.4rem 1.25rem; }
 .door::details-content {
@@ -121,6 +119,20 @@ h1 {
   transition: block-size 280ms ease, content-visibility 280ms allow-discrete;
 }
 .door[open]::details-content { block-size: auto; }
+
+/* CV row: grouped highlights, years flush right. */
+.cv-download { font-family: var(--display); margin: 0 0 2rem; }
+.cv-group {
+  display: grid; grid-template-columns: 12rem minmax(0, 1fr); gap: 0.5rem 2rem;
+  padding-block: 1.4rem; border-top: 1px solid var(--rule);
+}
+.cv-group:first-of-type { border-top-color: var(--ink); }
+.cv-group h3 { font-family: var(--display); font-weight: 700; font-size: var(--step-1); margin: 0; }
+.cv-group ul { list-style: none; margin: 0; padding: 0; min-width: 0; }
+.cv-group li { display: flex; justify-content: space-between; gap: 1.5rem; padding-block: 0.3rem; }
+.cv-group .when { font-family: var(--display); font-size: 0.9rem; color: var(--muted); white-space: nowrap; padding-top: 0.15em; }
+.cv-group cite { font-style: italic; }
+@media (max-width: 720px) { .cv-group { grid-template-columns: minmax(0, 1fr); } }
 
 /* Footer */
 .site-foot {
@@ -134,7 +146,8 @@ h1 {
 @media (max-width: 720px) {
   .intro { padding-block: 2.5rem 2rem; grid-template-columns: minmax(0, 1fr); }
   .zorba { max-width: 18rem; min-height: 0; aspect-ratio: 4 / 5; margin-top: 0.5rem; }
-  .door > summary, .door-link { grid-template-columns: minmax(0, 1fr) 1.5rem; gap: 0.35rem 1rem; }
+  .site-head nav { gap: 0.4rem 0.9rem; }
+  .door > summary { grid-template-columns: minmax(0, 1fr) 1.5rem; gap: 0.35rem 1rem; }
   .door .mark { grid-column: 2; grid-row: 1; }
   .door .teaser, .door .lede { grid-column: 1 / -1; grid-row: 2; }
 }
