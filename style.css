@@ -79,22 +79,48 @@ h1 {
 .bio .lede { font-size: var(--step-1); line-height: 1.5; }
 
 
-/* Doors: the page's one bold move. Three choices, set as large type. */
+/* Doors: the page's one bold move. Each row opens in place; CV opens the PDF. */
+:root { interpolate-size: allow-keywords; }
 .doors { border-top: 2px solid var(--ink); margin-block: 1rem 4rem; }
-.door {
-  display: grid; grid-template-columns: 12rem minmax(0, 1fr); gap: 0.5rem 2rem;
-  align-items: baseline; padding-block: 1.6rem; border-bottom: 1px solid var(--rule);
-  text-decoration: none; color: var(--ink);
+.door { border-bottom: 1px solid var(--rule); scroll-margin-top: 1rem; }
+.door:last-child { border-bottom: 0; }
+.door > summary, .door-link {
+  display: grid; grid-template-columns: 12rem minmax(0, 1fr) 1.5rem; gap: 0.5rem 2rem;
+  align-items: baseline; padding-block: 1.6rem;
+  text-decoration: none; color: var(--ink); cursor: pointer; list-style: none;
 }
+.door > summary::-webkit-details-marker { display: none; }
 .door h2 {
   font-family: var(--display); font-weight: 700; font-size: var(--step-2);
   letter-spacing: -0.015em; margin: 0; transition: color 120ms ease;
 }
-.door p { margin: 0; color: var(--muted); max-width: 34rem; }
-.door:hover h2, .door:focus-visible h2 { color: var(--firouzeh); }
+.door .teaser { margin: 0; color: var(--muted); max-width: 34rem; }
+.door > summary .lede { display: none; }
+.door[open] > summary .teaser { display: none; }
+.door[open] > summary .lede { display: block; margin: 0; font-size: var(--step-1); line-height: 1.5; max-width: var(--measure); color: var(--ink); }
+.door > summary:hover h2, .door-link:hover h2,
+.door > summary:focus-visible h2, .door-link:focus-visible h2 { color: var(--firouzeh); }
 .door:hover { border-bottom-color: var(--firouzeh); }
-.door:last-child { border-bottom: 0; }
-.door:focus-visible { outline: 2px solid var(--firouzeh); outline-offset: 4px; }
+.door > summary:focus-visible, .door-link:focus-visible { outline: 2px solid var(--firouzeh); outline-offset: 4px; }
+
+/* Plus that turns into a minus when the row is open. */
+.mark { position: relative; justify-self: end; align-self: center; width: 1rem; height: 1rem; color: var(--muted); }
+.mark::before, .mark::after {
+  content: ""; position: absolute; left: 0; top: 50%; width: 100%; height: 2px;
+  margin-top: -1px; background: currentColor; transition: transform 200ms ease;
+}
+.mark::after { transform: rotate(90deg); }
+.door[open] .mark::after { transform: rotate(0deg); }
+.mark-file { width: auto; height: auto; font-family: var(--display); font-size: 1.2rem; line-height: 1; }
+.mark-file::before, .mark-file::after { display: none; }
+.door > summary:hover .mark, .door-link:hover .mark { color: var(--firouzeh); }
+
+.panel { padding-block: 0.4rem 1.25rem; }
+.door::details-content {
+  block-size: 0; overflow: hidden;
+  transition: block-size 280ms ease, content-visibility 280ms allow-discrete;
+}
+.door[open]::details-content { block-size: auto; }
 
 /* Footer */
 .site-foot {
@@ -108,9 +134,11 @@ h1 {
 @media (max-width: 720px) {
   .intro { padding-block: 2.5rem 2rem; grid-template-columns: minmax(0, 1fr); }
   .zorba { max-width: 18rem; min-height: 0; aspect-ratio: 4 / 5; margin-top: 0.5rem; }
-  .door { grid-template-columns: minmax(0, 1fr); }
+  .door > summary, .door-link { grid-template-columns: minmax(0, 1fr) 1.5rem; gap: 0.35rem 1rem; }
+  .door .mark { grid-column: 2; grid-row: 1; }
+  .door .teaser, .door .lede { grid-column: 1 / -1; grid-row: 2; }
 }
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { *, .door::details-content { transition: none !important; } }
 
 /* Inner pages */
 .page-intro { padding-block: 3.5rem 2.5rem; max-width: var(--measure); }
@@ -121,33 +149,33 @@ h1 {
   border-left: 3px solid var(--firouzeh); padding: 0.25rem 0 0.25rem 1.25rem;
   margin-block: 0 3.5rem; max-width: var(--measure);
 }
-.feature h2 { font-family: var(--display); font-size: var(--step-1); margin: 0 0 0.5rem; }
+.feature h3 { font-family: var(--display); font-size: var(--step-1); margin: 0 0 0.5rem; }
 .feature p { margin: 0 0 0.6rem; }
 .feature .meta { font-family: var(--display); font-size: 0.92rem; color: var(--muted); margin: 0; }
 
-.pillar { margin-bottom: 3.5rem; }
-.pillar > h2 {
-  font-family: var(--display); font-weight: 700; font-size: var(--step-2);
-  letter-spacing: -0.015em; margin: 0 0 0.25rem; padding-bottom: 0.6rem; border-bottom: 2px solid var(--ink);
+.pillar { margin-bottom: 3rem; }
+.pillar > h3 {
+  font-family: var(--display); font-weight: 700; font-size: var(--step-1);
+  letter-spacing: -0.015em; margin: 0 0 0.25rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--ink);
 }
 .papers { list-style: none; margin: 0; padding: 0; }
 .paper { padding-block: 1.3rem; border-bottom: 1px solid var(--rule); max-width: 46rem; }
-.paper h3 { font-family: var(--display); font-weight: 600; font-size: 1.1rem; line-height: 1.35; margin: 0 0 0.3rem; text-wrap: balance; }
-.paper h3 a { text-decoration: none; }
-.paper h3 a:hover { text-decoration: underline; }
+.paper h4 { font-family: var(--display); font-weight: 600; font-size: 1.1rem; line-height: 1.35; margin: 0 0 0.3rem; text-wrap: balance; }
+.paper h4 a { text-decoration: none; }
+.paper h4 a:hover { text-decoration: underline; }
 .paper .cite { font-family: var(--display); font-size: 0.9rem; color: var(--muted); margin: 0 0 0.5rem; }
 .paper .status { color: var(--firouzeh); font-weight: 600; }
 .paper .why { margin: 0; max-width: var(--measure); }
-.more { font-family: var(--display); margin-block: 0 4rem; }
+.more { font-family: var(--display); margin-block: 0; }
 
 /* Tools: each tool is a row; the years column carries the lineage. */
-.tools { border-top: 2px solid var(--ink); margin-bottom: 3.5rem; }
+.tools { border-top: 1px solid var(--ink); }
 .tool {
   display: grid; grid-template-columns: 12rem minmax(0, 1fr); gap: 0.5rem 2rem;
   padding-block: 1.8rem; border-bottom: 1px solid var(--rule);
 }
 .tool > div { min-width: 0; }
-.tool h2 { font-family: var(--display); font-weight: 700; font-size: var(--step-2); letter-spacing: -0.015em; margin: 0; }
+.tool h3 { font-family: var(--display); font-weight: 700; font-size: var(--step-1); letter-spacing: -0.015em; margin: 0; }
 .tool .years { font-family: var(--display); font-size: 0.9rem; color: var(--muted); margin: 0.2rem 0 0; }
 .tool p { margin: 0 0 0.75rem; max-width: var(--measure); }
 .tool .links { font-family: var(--display); font-size: 0.95rem; margin: 0; display: flex; flex-wrap: wrap; gap: 0.3rem 1.25rem; }
@@ -156,9 +184,9 @@ h1 {
 @media (max-width: 720px) { .tool { grid-template-columns: minmax(0, 1fr); } }
 
 /* Advising */
-.offers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; border-top: 2px solid var(--ink); margin-bottom: 3.5rem; }
+.offers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; border-top: 1px solid var(--ink); }
 .offer { padding-block: 1.5rem; border-bottom: 1px solid var(--rule); min-width: 0; }
-.offer h2 { font-family: var(--display); font-weight: 700; font-size: var(--step-1); margin: 0 0 0.4rem; }
+.offer h3 { font-family: var(--display); font-weight: 700; font-size: var(--step-1); margin: 0 0 0.4rem; }
 .offer p { margin: 0; }
 .offer:nth-last-child(-n+2) { border-bottom: 0; }  /* no rule under the last row */
 @media (max-width: 720px) {
