@@ -82,7 +82,7 @@ h1 {
 
 /* Doors: the page's main rows. Each opens in place. */
 :root { interpolate-size: allow-keywords; }
-.doors { border-top: 1px solid var(--rule); margin-block: 1rem 4rem; }
+.doors { border-top: 1px solid var(--rule); margin-block: 1rem 5rem; }
 .door { border-bottom: 1px solid var(--rule); scroll-margin-top: 1rem; }
 .door:last-child { border-bottom: 0; }
 .door > summary {
@@ -139,14 +139,6 @@ h1 {
 .cv-group cite { font-style: italic; }
 @media (max-width: 720px) { .cv-group { grid-template-columns: minmax(0, 1fr); } }
 
-/* Footer */
-.site-foot {
-  border-top: 1px solid var(--rule); padding-block: 1.5rem 2.5rem;
-  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem;
-  font-family: var(--display); font-size: 0.9rem; color: var(--muted);
-}
-.site-foot nav { display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; }
-.site-foot a { text-decoration: none; }
 
 @media (max-width: 720px) {
   .intro { padding-block: 2.5rem 2rem; grid-template-columns: minmax(0, 1fr); }
